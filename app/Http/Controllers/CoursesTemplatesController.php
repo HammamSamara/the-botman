@@ -43,18 +43,13 @@ class CoursesTemplatesController extends Controller
     public function update(Course $course, Request $request, $id)
     {
         $validatedData = $request->validate([
-            'year' => 'required|digits',
-            'url' => 'required|url',
+            'year' => 'digits:4',
+            'url' => 'url',
         ]);
 
         $template = Template::findOrFail($id);
 
-        // $template->update($request->all());
-
-        $template->year = $request->get('year');
-        $template->url = $request->get('url');
-
-        $template->save();
+        $template->update($request->all());
 
         return response()->json($template);
     }

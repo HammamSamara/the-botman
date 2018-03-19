@@ -16,3 +16,5 @@ use Illuminate\Http\Request;
 Route::resource('courses', 'CoursesController')->except(['edit', 'create']);
 
 Route::resource('courses/{course}/templates', 'CoursesTemplatesController')->only(['index', 'store', 'update', 'destroy']);
+
+Route::match(['get', 'post'], '/botman', 'ConversationsController@handle');

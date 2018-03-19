@@ -23,6 +23,7 @@ class Template extends Model
     public function toArray()
     {
         return [
+            'template_id' => $this->id,
             'year' => $this->year,
             'url' => $this->url,
         ];
